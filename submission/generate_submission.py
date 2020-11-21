@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import csv
 
-experiment = 'bs16_lr5e-5_ep3'
+experiment = 'bs32_lr1e-5_ep3'
 
 template = pd.read_csv('sample_submission.tsv', sep='\t', header=None)
 result = pd.read_csv(experiment + '.txt', sep='\t')
