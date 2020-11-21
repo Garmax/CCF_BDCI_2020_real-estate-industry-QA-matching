@@ -2,8 +2,6 @@ name: dazuoye
 channels:
   - defaults
 dependencies:
-  - certifi=2020.6.20
-  - openssl=1.1.1h
   - pip=20.2.4
   - python=3.8.5
   - setuptools=50.3.1
@@ -13,7 +11,8 @@ dependencies:
   - wheel=0.35.1
   - xz=5.2.5
   - zlib=1.2.11
-  - pytorch=1.7.0
+  - pandas=1.0.5
+  - jupyter=1.0.0
   - pip:
     - chardet==3.0.4
     - click==7.1.2
