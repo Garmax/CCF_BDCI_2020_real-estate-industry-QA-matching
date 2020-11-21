@@ -1,4 +1,4 @@
-# Data Pre-processing
+# Model Set-up, Training & Testing
 THU Fall 2020 大数据分析(B)大作业-房产行业聊天问答匹配-模型建立与训练部分
 
 `modeling.py`即建模与训练/测试的代码；
