@@ -17,6 +17,7 @@ Batch Size|Learning Rate|Epoch|Submission Score
 32|2e-5|3|
 32|5e-5|3|
 16|1e-5|3|0.7519
+16|1e-5|5|待提交
 16|2e-5|3|0.7519
 16|5e-5|3|0.7521
 8|1e-5|3|
