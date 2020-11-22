@@ -22,4 +22,4 @@ Batch Size|Learning Rate|Epoch|Submission Score
 16|5e-5|3|0.7521
 8|1e-5|3|0.7464
 8|2e-5|3|
-8|5e-5|3|
+8|5e-5|3|0.7404
