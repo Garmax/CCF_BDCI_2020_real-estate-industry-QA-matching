@@ -1,4 +1,4 @@
-# %%
+# %% 将modeling的结果转换成提交文件
 import pandas as pd
 import numpy as np
 
@@ -13,5 +13,3 @@ result = pd.read_csv(
 template[2] = result['prediction']
 
 template.to_csv(experiment + '.tsv', sep='\t', index=False, header=None)
-
-# %%
