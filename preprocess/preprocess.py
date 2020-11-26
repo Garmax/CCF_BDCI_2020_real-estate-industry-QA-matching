@@ -33,61 +33,10 @@ dev.columns= ['col1','col2','col3','col4','col5']
 dev.to_csv('../modeling/data/MRPC/dev.tsv', sep='\t', index=None)
 
 # %%
-# train = [[[] for i in range(5)] for i in range(train_reply.shape[0])]
-# for i in range(train_reply.shape[0]):
-#     train[i][0] = train_reply[3][i]
-#     train[i][1] = train_reply[0][i]
-#     train[i][2] = train_reply[1][i]
-#     train[i][3] = train_query[1][train_reply[0][i]]
-#     train[i][4] = train_reply[2][i]
-
-# %%
-# with open('../data/train.tsv', 'w', newline='', encoding='gb18030') as tsv_file:
-#     writer = csv.writer(tsv_file, delimiter='\t')
-#     # writer.writerow('header')
-#     for row in train:
-#         writer.writerow(row)
-
-#%%
-
-
-#%%
-# test = [[[] for i in range(5)] for i in range(test_reply.shape[0])]
-# for i in range(test_reply.shape[0]):
-#     test[i][0] = i
-#     test[i][1] = test_reply[0][i]
-#     test[i][2] = test_reply[1][i]
-#     test[i][3] = test_query[1][test_reply[0][i]]
-#     test[i][4] = test_reply[2][i]
-# print(test)
-# with open('../data/test.tsv', 'w', newline='', encoding='gb18030') as tsv_file:
-#     writer = csv.writer(tsv_file, delimiter='\t')
-#     # writer.writerow('header')
-#     for row in test:
-#         writer.writerow(row)
-
-
-
-
-#%%
-# dev_list = np.random.randint(train_reply.shape[0], size=1000)
-# print(dev_list[0])
-# dev = [[[] for i in range(5)] for i in range(1000)]
-# for i in range(1000):
-#     dev[i][0] = train_reply[3][dev_list[i]]
-#     dev[i][1] = train_reply[0][dev_list[i]]
-#     dev[i][2] = train_reply[1][dev_list[i]]
-#     dev[i][3] = train_query[1][train_reply[0][dev_list[i]]]
-#     dev[i][4] = train_reply[2][dev_list[i]]
-# print(dev)
-# with open('C:/Users/a4/Desktop/dev.tsv', 'w', newline='') as tsv_file:
-#     writer = csv.writer(tsv_file, delimiter='\t')
-#     # writer.writerow('header')
-#     for row in dev:
-#         writer.writerow(row)
-
-#%%
-if __name__ == '__main__':
-    preprocess()
-
-# %%
+from sklearn.model_selection import train_test_split
+train_split, test_split = train_test_split(train, test_size=0.2)
+train_split.to_csv('../modeling/data/SPLIT/train.tsv', sep='\t', index=None)
+test_split.to_csv('../modeling/data/SPLIT/test.tsv', sep='\t', index=None)
+dev = train_split.sample(n=1000, random_state=1)
+dev.columns= ['col1','col2','col3','col4','col5']
+dev.to_csv('../modeling/data/SPLIT/dev.tsv', sep='\t', index=None)

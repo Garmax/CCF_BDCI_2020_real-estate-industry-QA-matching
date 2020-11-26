@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-experiment = 'bs32_lr5e-5_ep5_large'
+experiment = 'bs64_lr5e-5_ep4_large'
 
 template = pd.read_csv('../data/sample_submission.tsv', sep='\t',
                        header=None, dtype=np.int32)
@@ -13,3 +13,5 @@ result = pd.read_csv(
 template[2] = result['prediction']
 
 template.to_csv(experiment + '.tsv', sep='\t', index=False, header=None)
+
+# %%
