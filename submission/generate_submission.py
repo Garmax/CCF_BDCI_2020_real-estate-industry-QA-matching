@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 
-experiment = 'bs56_lr5e-5_ep3_large'
+experiment = 'bs60_lr5e-5_ep3_large'
 
 template = pd.read_csv('../data/sample_submission.tsv', sep='\t',
                        header=None, dtype=np.int32)
