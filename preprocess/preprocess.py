@@ -33,6 +33,7 @@ dev.columns= ['col1','col2','col3','col4','col5']
 dev.to_csv('../modeling/data/MRPC/dev.tsv', sep='\t', index=None)
 
 # %%
+# 训练集分割一部分作为测试集
 from sklearn.model_selection import train_test_split
 train_split, test_split = train_test_split(train, test_size=0.2)
 train_split.to_csv('../modeling/data/SPLIT/train.tsv', sep='\t', index=None)
@@ -40,3 +41,27 @@ test_split.to_csv('../modeling/data/SPLIT/test.tsv', sep='\t', index=None)
 dev = train_split.sample(n=1000, random_state=1)
 dev.columns= ['col1','col2','col3','col4','col5']
 dev.to_csv('../modeling/data/SPLIT/dev.tsv', sep='\t', index=None)
+
+
+# %%
+# def preprocess():
+train = pd.concat([train_reply.iloc[:, 3], train_reply.iloc[:, 0], train_reply.iloc[:, 1],
+                    train_query.iloc[train_reply[0], 1].reset_index(drop=True), train_reply.iloc[:, 2]], axis=1, ignore_index=True)
+train.columns= ['col1','col2','col3','col4','col5']
+train['col4'] = pd.read_csv("../Stopwords/train_query_output.txt")
+train['col5'] = pd.read_csv("../Stopwords/train_reply_output.txt")
+train.to_csv('../Stopwords/train.tsv', sep='\t', index=None)
+
+test = pd.concat([test_reply.iloc[:, 0], test_reply.iloc[:, 1], 
+                    test_query.iloc[test_reply[0], 1].reset_index(drop=True), test_reply.iloc[:, 2]], axis=1, ignore_index=True)
+test.columns= ['col2','col3','col4','col5']
+test['col1'] = test.index
+test = test.reindex(columns=['col1','col2','col3','col4','col5'])   
+test.to_csv('../Stopwords/test.tsv', sep='\t', index=None)
+
+#%%
+#random_state =0随机，random_state=1设置种子
+dev = train.sample(n=1000, random_state=1)
+dev.columns= ['col1','col2','col3','col4','col5']
+dev.to_csv('../Stopwords/dev.tsv', sep='\t', index=None)
+# %%
