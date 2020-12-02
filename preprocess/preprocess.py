@@ -57,6 +57,8 @@ test = pd.concat([test_reply.iloc[:, 0], test_reply.iloc[:, 1],
 test.columns= ['col2','col3','col4','col5']
 test['col1'] = test.index
 test = test.reindex(columns=['col1','col2','col3','col4','col5'])   
+test['col4'] = pd.read_csv("../Stopwords/test_query_output.txt")
+test['col5'] = pd.read_csv("../Stopwords/test_reply_output.txt")
 test.to_csv('../Stopwords/test.tsv', sep='\t', index=None)
 
 #%%
